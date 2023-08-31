@@ -1,2 +1,3 @@
-public enum Color {Coral, Cyan, Feldgrau, Fulvous,
+public enum Color {
+	Coral , Cyan, Feldgrau, Fulvous
 }
