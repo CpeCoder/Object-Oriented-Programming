@@ -18,7 +18,6 @@ public class Line{
 
 	@Override
 	public String toString(){
-		return ((String.format("%8s", color)) + " (" + (String.format("%.3f",x1)) + "," + String.format("%.3f",y1)
-				+ ")" + " - (" + String.format("%.3f",x2) + "," + String.format("%.3f",y2) + ") has length" ) ;   
+		return (String.format("%8s (%.3f,%.3f) - (%.3f,%.3f) has length", color, x1, y1, x2, y2));   
 	}
 }
