@@ -6,7 +6,7 @@ public class TestLine{
 		double length2 = line2.length();
 		Line line3 = new Line(9.360, 6.226, 4.605, 4.110, Color.Feldgrau);
 		double length3 = line3.length();
-		Line line4 = new Line(0.752, 9.955, 5.561, 9.962, Color.Fulvous);
+		Line line4 = new Line(0.752, 9.955, 5.561, 9.962, Color.Rose);
 		double length4 = line4.length();
 
 		System.out.println(line1 + " " + length1);
