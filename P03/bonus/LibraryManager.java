@@ -19,7 +19,7 @@ public class LibraryManager
 		
 		Scanner in = new Scanner(System.in);
 		
-		System.out.print("Which book to check out? ");
+		System.out.print("Which book to check-out? ");
 		int bookIndex = in.nextInt();
 		in.nextLine();
 		
@@ -30,7 +30,7 @@ public class LibraryManager
 
 		System.out.print("Who are you? ");
 		int patronIndex = in.nextInt();
-
+		
 		myLib.checkOut(bookIndex, patronIndex);
 		
 		System.out.print(myLib);
