@@ -5,7 +5,7 @@ public class Library
 	private String name;
 	private ArrayList<Publication> publications = new ArrayList<>();
 
-	class Library(String name)
+	public Library(String name)
 	{
 		this.name = name;
 	}
@@ -27,5 +27,16 @@ public class Library
 			System.err.println("IndexOutOfBoundsException: " + e.getMessage());	
 		}
 	}
-
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder output = new StringBuilder();
+		output.append(name).append("\n");	
+		for(int i=0; i <= publications.size()-1; i++)
+		{
+			output.append(String.format("%d) %s\n", i, publications.get(i)));
+		}
+		return output.toString();
+	}
 }

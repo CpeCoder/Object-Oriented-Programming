@@ -33,12 +33,12 @@ public class Publication
 		StringBuilder output = new StringBuilder();
 		if(loanedTo != null)
 		{
-			output.append(String.format("Loaner: %s\n", loanedTo));		
+			output.append(String.format("\nLoaner: %s\n", loanedTo));		
 		}
                 output.append(String.format("\"%s\" by %s, copyright %d\n", title, author, copyright));
 		if(loanedTo != null)
 		{
-			output.append(String.format("Due by: %s", dueDate));
+			output.append(String.format("Due by: %s\n", dueDate));
 		}
 
 		return output.toString();
