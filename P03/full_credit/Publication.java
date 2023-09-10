@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 
 
-public class Publication{
+public class Publication
+{
 	private String title, author, loanedTo;
 	private int copyright;
 	private LocalDate dueDate;
@@ -20,7 +21,7 @@ public class Publication{
 		}
 	}
 
-	public String checkOut(String patron)
+	public void checkOut(String patron)
 	{
 		loanedTo = patron;
 		dueDate = (LocalDate.now()).plusDays(14);
@@ -29,6 +30,17 @@ public class Publication{
 	@Override
 	public String toString()
 	{
+		StringBuilder output = new StringBuilder();
+		if(loanedTo != null)
+		{
+			output.append(String.format("Loaner: %s\n", loanedTo));		
+		}
+                output.append(String.format("\"%s\" by %s, copyright %d\n", title, author, copyright));
+		if(loanedTo != null)
+		{
+			output.append(String.format("Due by: %s", dueDate));
+		}
 
+		return output.toString();
 	}
 }
