@@ -28,25 +28,16 @@ public class Publication {
 	protected StringBuilder toStringBuilder(String pre, String mid){
 		StringBuilder output = new StringBuilder();
 		output.append(pre);
-		output.append(String.format("\"%s\" by %s, copyright %d\n", title, author, copyright));
+		output.append(String.format("\"%s\" by %s, copyright %d", title, author, copyright));
 		output.append(mid);
 		if (loanedTo != null) {
-                        output.append(String.format("Due by: %s\n", dueDate));
+                        output.append(String.format("\n\tLoned by: %s. Due by: %s\n", loanedTo, dueDate));
                 }
 		return output;
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder output = new StringBuilder();
-		if (loanedTo != null) {
-			output.append(String.format("\nLoaner: %s\n", loanedTo));
-		}
-		output.append(String.format("\"%s\" by %s, copyright %d\n", title, author, copyright));
-		if (loanedTo != null) {
-			output.append(String.format("Due by: %s\n", dueDate));
-		}
-
-		return output.toString();
+		return toStringBuilder("Book ", "").toString() + "\n";
 	}
 }

@@ -15,6 +15,14 @@ public class LibraryManager {
 			myLib.addPublication(book1);
 			myLib.addPublication(book2);
 			myLib.addPublication(book3);
+			
+                        Publication video1 = new Video("The Godfather", "Francis Coppalo", 1972, 175);
+                        Publication video2 = new Video("The Shawshank Redemption", "Frank Darabont", 1994, 154);
+                        Publication video3 = new Video("Titanic", "James Camerson", 1997, 195);
+
+                        myLib.addPublication(video1);
+                        myLib.addPublication(video2);
+                        myLib.addPublication(video3);
 
 			System.out.print(myLib);
 
@@ -34,7 +42,7 @@ public class LibraryManager {
 
 			myLib.checkOut(bookIndex, patronIndex);
 
-			System.out.print(myLib);
+			System.out.print(myLib)  ;
 
 			in.close();
 		} catch (Exception e) {

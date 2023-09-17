@@ -14,6 +14,11 @@ public class Video extends Publication{
 
 	@Override
 	public String toString(){
-		return runtime + " minutes";
+		StringBuilder output;
+
+		String duration = String.format(", runtime " + runtime.toMinutes() + " minutes\n");
+		output = toStringBuilder("Video ", duration);
+        	
+		return output.toString();
 	}
 }
