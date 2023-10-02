@@ -1,0 +1,75 @@
+Deep's Library
+Publication
+To Kill a Mockingbird
+Harper Lee
+1960
+Publication
+Harry Potter and the Half-Blood Prince
+J.K. Rowling
+2005
+Publication
+The Great Gatsby
+F. Fitzgerald
+1925
+Publication
+The Catcher in the Rye
+J.D. Salinger
+1951
+Publication
+The Road
+Cormac McCarthy
+2006
+Publication
+The Fellowship of the Ring
+J.R.R. Tolkien
+1954
+Publication
+The Two Towers
+J.R.R. Tolkien
+1954
+Publication
+The Return of the King
+J.R.R. Tolkien
+1955
+Publication
+A Long Way Gone
+Ishmael Beah
+2007
+Publication
+The Hunger Games
+Suzanne Collins
+2008
+Video
+The Godfather
+Francis Coppalo
+1972
+175
+Video
+The Shawshank Redemption
+Frank Darabont
+1994
+154
+Video
+Titanic
+James Camerson
+1997
+195
+
+James Cook
+explorer@english.cool
+Helen Keller
+blind&DeafWriter@America.fighter
+Abraham Lincoln
+president@US.leader
+William Shakespeare
+playwright&Poet@English.best
+Vincent Van Gogh
+painter@dutch.likeIt
+Greta Thunberg
+climateActivist@Sweden.UGo
+Malala Yousafzai
+humanRightActivist@Pakistan.NobalPrice
+Billie Eilish
+singer@America.okMusic
+
+
