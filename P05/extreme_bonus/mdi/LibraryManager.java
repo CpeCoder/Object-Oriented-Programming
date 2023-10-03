@@ -17,7 +17,7 @@ import java.util.Scanner;
  * patrons, and checking out publications to patrons.
  */
 class LibraryManager {
-    public Library library;
+    private Library library;
 
     public LibraryManager(Library library) {
         this.library = library;
