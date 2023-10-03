@@ -64,6 +64,12 @@ public class Library {
 		checkOutPublication.checkOut(patrons.get(patronIndex));
 	}
 
+	/**
+	 * Checks out a publication to a patron.
+	 *
+	 * @param publicationIndex the index of the publication to be checked in.
+	 * 
+	 */
 	public void checkIn(int publicationIndex) {
 		Publication checkInPublication = publications.get(publicationIndex);
 		checkInPublication.checkOut(null);
