@@ -64,6 +64,10 @@ public class Library {
 		checkOutPublication.checkOut(patrons.get(patronIndex));
 	}
 
+	public void checkIn(int publicationIndex) {
+		patrons.set(publicationIndex, null);
+	}
+
 	/**
 	 * Returns a string representation of the library, including its name and a list
 	 * of publications.
