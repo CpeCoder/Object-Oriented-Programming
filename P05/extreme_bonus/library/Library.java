@@ -65,7 +65,8 @@ public class Library {
 	}
 
 	public void checkIn(int publicationIndex) {
-		patrons.set(publicationIndex, null);
+		Publication checkInPublication = publications.get(publicationIndex);
+		checkInPublication.checkOut(null);
 	}
 
 	/**

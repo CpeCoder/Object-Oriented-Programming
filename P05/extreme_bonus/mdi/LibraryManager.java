@@ -37,7 +37,7 @@ class LibraryManager {
 
     public void addVideo() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Title<spave>Author<space>Year<space>Runtime\n");
+        System.out.println("\nTitle<enter>Author<enter>Year<enter>Runtime");
         library.addPublication(new Video(
                 scanner.nextLine(), scanner.nextLine(),
                 Integer.parseInt(scanner.nextLine()),
@@ -126,7 +126,7 @@ class LibraryManager {
                 System.out.println("4. Check In");
                 System.out.println("\nPatrons\n5. List");
                 System.out.print("6. Add");
-                System.out.print("\nFiles\n7. Load File\n0. Exit\n");
+                System.out.print("\n\nFiles\n7. Load File\n0. Exit\n");
                 System.out.print("\n\nChoose an option: ");
                 int option = scanner.nextInt();
                 scanner.nextLine();
