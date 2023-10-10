@@ -29,20 +29,15 @@ public class Library {
 			this.name = br.readLine();
 			this.publications = new ArrayList<>();
 			int publicationSize = Integer.parseInt(br.readLine());
+			String publicationType;
 
 			for (int i = 0; i < publicationSize; i++) {
-				Publication publication = null;
-				if (br.readLine().equals("Publication")) {
-					addPublication(new Publication(br.readLine(), br.readLine(),
-							Integer.parseInt(br.readLine())));
-				} else if (br.readLine().equals("Video")) {
-					addPublication(new Video(br.readLine(), br.readLine(),
-							Integer.parseInt(br.readLine()),
-							Integer.parseInt(br.readLine())));
-				}
+				publicationType = br.readLine();
+				if (publicationType.equals("Publication")) {
+					addPublication(new Publication(br));
 
-				if (publication != null) {
-					publications.add(publication);
+				} else if (publicationType.equals("Video")) {
+					addPublication(new Video(br));
 				}
 			}
 
@@ -50,11 +45,8 @@ public class Library {
 			patrons = new ArrayList<>();
 
 			for (int i = 0; i < patronSize; i++) {
-				if (br.readLine().isEmpty())
-					break;
-				addPatron(new Patron(name, br.readLine()));
+				addPatron(new Patron(br));
 			}
-
 		} catch (IOException | NumberFormatException e) {
 			System.err.println("Error reading library - " + e.getMessage());
 		}

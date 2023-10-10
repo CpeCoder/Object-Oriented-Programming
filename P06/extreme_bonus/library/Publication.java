@@ -30,8 +30,6 @@ public class Publication {
 		this.author = author;
 		this.copyright = copyright;
 
-		// LocalDate todaysDate = LocalDate.now();
-
 		if (copyright < 1900 || copyright > (LocalDate.now()).getYear()) {
 			throw new IllegalArgumentException("The year of copyright is before 1900 or after today's year");
 		}
@@ -54,7 +52,7 @@ public class Publication {
 				throw new IllegalArgumentException("Invalid status: " + line);
 			}
 		} catch (IOException e) {
-			e.printStackTrace(); // Handle the exception as appropriate for your application
+			e.printStackTrace();
 		}
 	}
 
