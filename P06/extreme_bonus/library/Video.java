@@ -31,6 +31,16 @@ public class Video extends Publication {
 		this.runtime = Duration.ofMinutes(runtime);
 	}
 
+	/**
+	 * Constructs a new Video object by reading data from a BufferedReader.
+	 * This constructor initializes the Video object by invoking the constructor of
+	 * its superclass (possibly Publication) to read common data and then reads
+	 * the runtime specific to videos from the BufferedReader.
+	 *
+	 * @param br The BufferedReader from which video data is read.
+	 * @throws IOException If an IOException occurs while reading data from the
+	 *                     BufferedReader.
+	 */
 	public Video(BufferedReader br) {
 		super(br);
 		try {
@@ -41,6 +51,12 @@ public class Video extends Publication {
 	}
 
 	/**
+	 * Saves the data of this Video object to a BufferedWriter.
+	 * This method first invokes the save method of its superclass (possibly
+	 * Publication)
+	 * to save common publication data, and then it saves the video-specific runtime
+	 * to the BufferedWriter
+	 * 
 	 * @param bw the BufferedWriter stream to write to.
 	 * @throws IOException if an I/O error occurs while writing to the stream.
 	 */

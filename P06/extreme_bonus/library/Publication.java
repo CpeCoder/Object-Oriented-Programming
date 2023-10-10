@@ -35,6 +35,17 @@ public class Publication {
 		}
 	}
 
+	/**
+	 * Constructs a new Publication object by reading data from a BufferedReader.
+	 * This constructor initializes the Publication object by reading title, author,
+	 * copyright, and loan status information from the BufferedReader.
+	 *
+	 * @param br The BufferedReader from which publication data is read.
+	 * @throws IOException              If an IOException occurs while reading data
+	 *                                  from the BufferedReader.
+	 * @throws IllegalArgumentException If the loan status read from the
+	 *                                  BufferedReader is invalid.
+	 */
 	public Publication(BufferedReader br) {
 		try {
 			this.title = br.readLine();
@@ -56,6 +67,18 @@ public class Publication {
 		}
 	}
 
+	/**
+	 * Saves the data of this Publication object to a BufferedWriter.
+	 * This method writes the title, author, copyright, and loan status (checked in
+	 * or checked out)
+	 * of the publication to the BufferedWriter. If the publication is checked out,
+	 * it also saves
+	 * information about the patron it is loaned to and the due date.
+	 *
+	 * @param bw The BufferedWriter to which the publication data is saved.
+	 * @throws IOException If an IOException occurs while writing data to the
+	 *                     BufferedWriter.
+	 */
 	public void save(BufferedWriter bw) {
 		try {
 			bw.write(title + "\n");

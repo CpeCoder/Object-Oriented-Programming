@@ -24,6 +24,20 @@ public class Library {
 		patrons = new ArrayList<>();
 	}
 
+	/**
+	 * Constructs a new Library object by reading data from a BufferedReader.
+	 * This constructor initializes the Library object by reading the library's
+	 * name,
+	 * publications, and patrons from the BufferedReader. It handles different types
+	 * of
+	 * publications (Publication or Video) and their respective data during the
+	 * process.
+	 *
+	 * @param br The BufferedReader from which library data is read.
+	 * @throws IOException           If an IOException occurs while reading data
+	 *                               from the BufferedReader.
+	 * @throws NumberFormatException If there is an issue parsing numeric data.
+	 */
 	public Library(BufferedReader br) {
 		try {
 			this.name = br.readLine();
@@ -52,6 +66,19 @@ public class Library {
 		}
 	}
 
+	/**
+	 * Saves the data of this Library object to a BufferedWriter.
+	 * This method writes the library's name, the count of publications, the list of
+	 * publications (including their types), the count of patrons, and the list of
+	 * patrons
+	 * to the BufferedWriter. It invokes the save method of each publication and
+	 * patron
+	 * to write their respective data.
+	 *
+	 * @param bw The BufferedWriter to which the library data is saved.
+	 * @throws IOException If an IOException occurs while writing data to the
+	 *                     BufferedWriter.
+	 */
 	public void save(BufferedWriter bw) {
 		try {
 			bw.write(name + "\n");
