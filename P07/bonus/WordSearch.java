@@ -122,8 +122,21 @@ public class WordSearch {
 
     public void solve(int threadID, int firstPuzzle, int lastPuzzlePlusOne) {
         System.err.println("Thread " + threadID + ": " + firstPuzzle + "-" + (lastPuzzlePlusOne - 1));
+
         for (int i = firstPuzzle; i < lastPuzzlePlusOne; ++i) {
-            Puzzle p = puzzles.get(i);
+            int puzzleIndex;
+
+            // Use a synchronized block to get the next puzzle index safely
+            synchronized (puzzlesLock) {
+                if (sharedPuzzleCounter < NUM_PUZZLES) {
+                    puzzleIndex = sharedPuzzleCounter;
+                    sharedPuzzleCounter++;
+                } else {
+                    break; // No more work to do, exit the loop
+                }
+            }
+
+            Puzzle p = puzzles.get(puzzleIndex);
             Solver solver = new Solver(p);
             for (String word : p.getWords()) {
                 try {
@@ -160,6 +173,7 @@ public class WordSearch {
     public final int NUM_PUZZLES;
     public final boolean verbose;
 
+    private int sharedPuzzleCounter = 0;
     private List<Puzzle> puzzles = new ArrayList<>();;
     private SortedSet<Solution> solutions = new java.util.TreeSet<>();
 }
