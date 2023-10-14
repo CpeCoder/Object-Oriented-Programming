@@ -92,10 +92,12 @@ public class WordSearch {
             if (threadID == NUM_THREADS - 1) {
                 lastPuzzlePlusOne = NUM_PUZZLES;
             }
+            final int finalFirstPuzzle = firstPuzzle;
+            final int finalLastPuzzlePlusOne = lastPuzzlePlusOne;
 
             // Create and start a thread for each range
             threads[i] = new Thread(() -> {
-                solve(threadID, firstPuzzle, lastPuzzlePlusOne);
+                solve(threadID, finalFirstPuzzle, finalLastPuzzlePlusOne);
             });
             threads[i].start();
         }
