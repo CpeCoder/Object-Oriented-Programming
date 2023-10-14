@@ -117,8 +117,8 @@ public class WordSearch {
         }
     }
 
-    private final Object puzzlesLock = new Object(); // Lock for puzzles collection
-    private final Object solutionsLock = new Object(); // Lock for solutions collection
+    private final Object puzzlesLock = new Object();
+    private final Object solutionsLock = new Object();
 
     public void solve(int threadID, int firstPuzzle, int lastPuzzlePlusOne) {
         System.err.println("Thread " + threadID + ": " + firstPuzzle + "-" + (lastPuzzlePlusOne - 1));
@@ -126,13 +126,12 @@ public class WordSearch {
         for (int i = firstPuzzle; i < lastPuzzlePlusOne; ++i) {
             int puzzleIndex;
 
-            // Use a synchronized block to get the next puzzle index safely
             synchronized (puzzlesLock) {
                 if (sharedPuzzleCounter < NUM_PUZZLES) {
                     puzzleIndex = sharedPuzzleCounter;
                     sharedPuzzleCounter++;
                 } else {
-                    break; // No more work to do, exit the loop
+                    break;
                 }
             }
 

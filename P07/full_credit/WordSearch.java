@@ -117,7 +117,6 @@ public class WordSearch {
         }
     }
 
-    private final Object puzzlesLock = new Object(); // Lock for puzzles collection
     private final Object solutionsLock = new Object(); // Lock for solutions collection
 
     public void solve(int threadID, int firstPuzzle, int lastPuzzlePlusOne) {
