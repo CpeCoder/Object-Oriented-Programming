@@ -3,12 +3,15 @@ FULL CREDIT
 
 QUESTION 1: Why is String[] args changed to a LinkedList in WordSearch.main? (Hint: Examine the WordSearch constructor!)
 
+Doing so provides more freedom in how command-line inputs are sent to the application. Because it makes accepting and manipulating the command-line parameters
+simpler, the constructor accepts a List<String> as an input. The main benefit of utilizing a List over a String[] is that lists have more methods for adding, removing, 
+and changing components, as well as dynamic scaling. This makes using command-line arguments simpler, especially when there can be a range in the amount of parameters.
 
 
 
 QUESTION 2: How many puzzles did your machine need to solve with 1 thread to run for between 30 and 45 seconds: 
 
-
+3000 puzzles 
 
 
 QUESTION 3: Provide the output of 
@@ -43,6 +46,239 @@ sys	0m0.229s
 
 YOUR Timing:
 
+$ for i in {1..16} ; do time java WordSearch $i 3000 ../puzzle00.txt ; done
+
+3000 puzzles with 1 threads
+Thread 0: 0-2999
+
+real    0m43.091s
+user    0m0.000s
+sys     0m0.016s
+
+3000 puzzles with 2 threads
+Thread 0: 0-1499
+Thread 1: 1500-2999
+
+real    0m23.733s
+user    0m0.000s
+sys     0m0.015s
+
+3000 puzzles with 3 threads
+Thread 0: 0-999
+Thread 1: 1000-1999
+Thread 2: 2000-2999
+
+real    0m16.517s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 4 threads
+Thread 2: 1500-2249
+Thread 3: 2250-2999
+Thread 1: 750-1499
+Thread 0: 0-749
+
+real    0m13.362s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 5 threads
+Thread 1: 600-1199
+Thread 0: 0-599
+Thread 2: 1200-1799
+Thread 3: 1800-2399
+Thread 4: 2400-2999
+
+real    0m12.418s
+user    0m0.015s
+sys     0m0.000s
+
+3000 puzzles with 6 threads
+Thread 1: 500-999
+Thread 4: 2000-2499
+Thread 5: 2500-2999
+Thread 0: 0-499
+Thread 3: 1500-1999
+Thread 2: 1000-1499
+
+real    0m11.328s
+user    0m0.000s
+sys     0m0.031s
+
+3000 puzzles with 7 threads
+Thread 0: 0-427
+Thread 4: 1712-2139
+Thread 1: 428-855
+Thread 3: 1284-1711
+Thread 2: 856-1283
+Thread 6: 2568-2999
+Thread 5: 2140-2567
+
+real    0m10.435s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 8 threads
+Thread 7: 2625-2999
+Thread 2: 750-1124
+Thread 3: 1125-1499
+Thread 0: 0-374
+Thread 6: 2250-2624
+Thread 4: 1500-1874
+Thread 1: 375-749
+Thread 5: 1875-2249
+
+real    0m9.766s
+user    0m0.000s
+sys     0m0.030s
+
+3000 puzzles with 9 threads
+Thread 6: 1998-2330
+Thread 0: 0-332
+Thread 7: 2331-2663
+Thread 2: 666-998
+Thread 5: 1665-1997
+Thread 4: 1332-1664
+Thread 1: 333-665
+Thread 3: 999-1331
+Thread 8: 2664-2999
+
+real    0m9.617s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 10 threads
+Thread 4: 1200-1499
+Thread 6: 1800-2099
+Thread 9: 2700-2999
+Thread 1: 300-599
+Thread 2: 600-899
+Thread 5: 1500-1799
+Thread 8: 2400-2699
+Thread 7: 2100-2399
+Thread 0: 0-299
+Thread 3: 900-1199
+
+real    0m9.339s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 11 threads
+Thread 3: 816-1087
+Thread 4: 1088-1359
+Thread 1: 272-543
+Thread 9: 2448-2719
+Thread 7: 1904-2175
+Thread 5: 1360-1631
+Thread 0: 0-271
+Thread 8: 2176-2447
+Thread 10: 2720-2999
+Thread 2: 544-815
+Thread 6: 1632-1903
+
+real    0m10.250s
+user    0m0.000s
+sys     0m0.031s
+
+3000 puzzles with 12 threads
+Thread 8: 2000-2249
+Thread 5: 1250-1499
+Thread 4: 1000-1249
+Thread 6: 1500-1749
+Thread 0: 0-249
+Thread 3: 750-999
+Thread 1: 250-499
+Thread 11: 2750-2999
+Thread 7: 1750-1999
+Thread 2: 500-749
+Thread 9: 2250-2499
+Thread 10: 2500-2749
+
+real    0m9.802s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 13 threads
+Thread 8: 1840-2069
+Thread 11: 2530-2759
+Thread 12: 2760-2999
+Thread 5: 1150-1379
+Thread 9: 2070-2299
+Thread 1: 230-459
+Thread 2: 460-689
+Thread 0: 0-229
+Thread 6: 1380-1609
+Thread 4: 920-1149
+Thread 7: 1610-1839
+Thread 10: 2300-2529
+Thread 3: 690-919
+
+real    0m8.999s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 14 threads
+Thread 7: 1498-1711
+Thread 10: 2140-2353
+Thread 6: 1284-1497
+Thread 0: 0-213
+Thread 4: 856-1069
+Thread 3: 642-855
+Thread 9: 1926-2139
+Thread 5: 1070-1283
+Thread 13: 2782-2999
+Thread 1: 214-427
+Thread 2: 428-641
+Thread 12: 2568-2781
+Thread 11: 2354-2567
+Thread 8: 1712-1925
+
+real    0m9.836s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 15 threads
+Thread 4: 800-999
+Thread 12: 2400-2599
+Thread 6: 1200-1399
+Thread 1: 200-399
+Thread 14: 2800-2999
+Thread 13: 2600-2799
+Thread 7: 1400-1599
+Thread 3: 600-799
+Thread 11: 2200-2399
+Thread 5: 1000-1199
+Thread 2: 400-599
+Thread 10: 2000-2199
+Thread 0: 0-199
+Thread 9: 1800-1999
+Thread 8: 1600-1799
+
+real    0m9.803s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 16 threads
+Thread 10: 1870-2056
+Thread 0: 0-186
+Thread 7: 1309-1495
+Thread 2: 374-560
+Thread 14: 2618-2804
+Thread 6: 1122-1308
+Thread 11: 2057-2243
+Thread 1: 187-373
+Thread 8: 1496-1682
+Thread 12: 2244-2430
+Thread 15: 2805-2999
+Thread 4: 748-934
+Thread 9: 1683-1869
+Thread 5: 935-1121
+Thread 3: 561-747
+Thread 13: 2431-2617
+
+real    0m9.703s
+user    0m0.000s
+sys     0m0.000s
 
 
 
@@ -51,14 +287,17 @@ YOUR Timing:
 
 QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program even slightly?  Why or why not?
 
-
+No, after certain numbers of threads speed stops increasing. In fact more threads causes more time to the program. This is due to overhead includes 
+the time it takes to launch a thread, the time it takes to synchronize threads, and the time it takes to manage the memory associated with each thread.
 
 
 
 
 QUESTION 4: Does adding more threads increase the "system load" (sys), or is it constant regardless of the number of threads?  Why?
 
-
+System load stays constant regardless of the numbers of threads.
+The sys time is a measure of system-level operations such as I/O and system calls. If program were frequently interacting 
+with the file system, network, or other external resources, the sys time might have been higher. However, the program does not inlcudes it taking sys 0 seconds.
 
 
 
@@ -70,15 +309,244 @@ QUESTION 5: Time your thread pool version of WordSearch exactly as you did for t
 
 YOUR Timing:
 
+$ for i in {1..16} ; do time java WordSearch $i 3000 ../puzzle00.txt ; done
 
+3000 puzzles with 1 threads
+Thread 0: 0-2999
 
+real    0m43.234s
+user    0m0.000s
+sys     0m0.000s
 
+3000 puzzles with 2 threads
+Thread 0: 0-1499
+Thread 1: 1500-2999
 
+real    0m22.156s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 3 threads
+Thread 2: 2000-2999
+Thread 1: 1000-1999
+Thread 0: 0-999
+
+real    0m33.859s
+user    0m0.000s
+sys     0m0.015s
+
+3000 puzzles with 4 threads
+Thread 1: 750-1499
+Thread 2: 1500-2249
+Thread 0: 0-749
+Thread 3: 2250-2999
+
+real    0m12.512s
+user    0m0.000s
+sys     0m0.015s
+
+3000 puzzles with 5 threads
+Thread 1: 600-1199
+Thread 4: 2400-2999
+Thread 3: 1800-2399
+Thread 0: 0-599
+Thread 2: 1200-1799
+
+real    0m11.249s
+user    0m0.000s
+sys     0m0.015s
+
+3000 puzzles with 6 threads
+Thread 5: 2500-2999
+Thread 2: 1000-1499
+Thread 3: 1500-1999
+Thread 0: 0-499
+Thread 4: 2000-2499
+Thread 1: 500-999
+
+real    0m12.108s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 7 threads
+Thread 3: 1284-1711
+Thread 4: 1712-2139
+Thread 1: 428-855
+Thread 5: 2140-2567
+Thread 0: 0-427
+Thread 6: 2568-2999
+Thread 2: 856-1283
+
+real    0m11.093s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 8 threads
+Thread 5: 1875-2249
+Thread 2: 750-1124
+Thread 1: 375-749
+Thread 7: 2625-2999
+Thread 0: 0-374
+Thread 6: 2250-2624
+Thread 3: 1125-1499
+Thread 4: 1500-1874
+
+real    0m9.988s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 9 threads
+Thread 2: 666-998
+Thread 0: 0-332
+Thread 8: 2664-2999
+Thread 6: 1998-2330
+Thread 1: 333-665
+Thread 7: 2331-2663
+Thread 4: 1332-1664
+Thread 3: 999-1331
+Thread 5: 1665-1997
+
+real    0m9.696s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 10 threads
+Thread 6: 1800-2099
+Thread 4: 1200-1499
+Thread 8: 2400-2699
+Thread 1: 300-599
+Thread 7: 2100-2399
+Thread 0: 0-299
+Thread 2: 600-899
+Thread 9: 2700-2999
+Thread 5: 1500-1799
+Thread 3: 900-1199
+
+real    0m9.400s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 11 threads
+Thread 1: 272-543
+Thread 4: 1088-1359
+Thread 6: 1632-1903
+Thread 3: 816-1087
+Thread 2: 544-815
+Thread 7: 1904-2175
+Thread 8: 2176-2447
+Thread 5: 1360-1631
+Thread 9: 2448-2719
+Thread 10: 2720-2999
+Thread 0: 0-271
+
+real    0m10.409s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 12 threads
+Thread 10: 2500-2749
+Thread 8: 2000-2249
+Thread 1: 250-499
+Thread 11: 2750-2999
+Thread 6: 1500-1749
+Thread 7: 1750-1999
+Thread 3: 750-999
+Thread 5: 1250-1499
+Thread 0: 0-249
+Thread 9: 2250-2499
+Thread 4: 1000-1249
+Thread 2: 500-749
+
+real    0m9.208s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 13 threads
+Thread 8: 1840-2069
+Thread 6: 1380-1609
+Thread 4: 920-1149
+Thread 7: 1610-1839
+Thread 10: 2300-2529
+Thread 5: 1150-1379
+Thread 1: 230-459
+Thread 2: 460-689
+Thread 11: 2530-2759
+Thread 3: 690-919
+Thread 12: 2760-2999
+Thread 9: 2070-2299
+Thread 0: 0-229
+
+real    0m9.177s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 14 threads
+Thread 5: 1070-1283
+Thread 13: 2782-2999
+Thread 12: 2568-2781
+Thread 2: 428-641
+Thread 6: 1284-1497
+Thread 0: 0-213
+Thread 9: 1926-2139
+Thread 11: 2354-2567
+Thread 3: 642-855
+Thread 8: 1712-1925
+Thread 4: 856-1069
+Thread 7: 1498-1711
+Thread 10: 2140-2353
+Thread 1: 214-427
+
+real    0m8.912s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 15 threads
+Thread 3: 600-799
+Thread 10: 2000-2199
+Thread 11: 2200-2399
+Thread 1: 200-399
+Thread 6: 1200-1399
+Thread 12: 2400-2599
+Thread 9: 1800-1999
+Thread 8: 1600-1799
+Thread 2: 400-599
+Thread 0: 0-199
+Thread 13: 2600-2799
+Thread 14: 2800-2999
+Thread 7: 1400-1599
+Thread 4: 800-999
+Thread 5: 1000-1199
+
+real    0m9.771s
+user    0m0.000s
+sys     0m0.000s
+
+3000 puzzles with 16 threads
+Thread 1: 187-373
+Thread 14: 2618-2804
+Thread 8: 1496-1682
+Thread 0: 0-186
+Thread 6: 1122-1308
+Thread 7: 1309-1495
+Thread 5: 935-1121
+Thread 2: 374-560
+Thread 11: 2057-2243
+Thread 9: 1683-1869
+Thread 4: 748-934
+Thread 10: 1870-2056
+Thread 12: 2244-2430
+Thread 3: 561-747
+Thread 15: 2805-2999
+Thread 13: 2431-2617
+
+real    0m9.602s
+user    0m0.000s
+sys     0m0.000s
 
 
 QUESTION 6: Is a thread pool faster, slower, or roughly equivalent in performance? 
 
-
+The thread pool is slightly faster.
 
 
 
@@ -86,6 +554,8 @@ QUESTION 6: Is a thread pool faster, slower, or roughly equivalent in performanc
 
 QUESTION 7: Compare your full credit and bonus solution code. Which do you believe is more supportable over a long lifetime of evolving hardware and environments?
 
+The implementation in the bonus solution seems to more supportative for long terms of evolving hardware and environments. This is because threade pool offers
+- Thread reuse, reuse threads from a pre-allocated pool, which reduces the overhead of creating and destroying threads for each task.
 
 
 
