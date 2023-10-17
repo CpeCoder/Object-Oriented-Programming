@@ -117,7 +117,7 @@ public class WordSearch {
         }
     }
 
-    private final Object solutionsLock = new Object(); // Lock for solutions collection
+    private final Object solutionsLock = new Object();
 
     public void solve(int threadID, int firstPuzzle, int lastPuzzlePlusOne) {
         System.err.println("Thread " + threadID + ": " + firstPuzzle + "-" + (lastPuzzlePlusOne - 1));

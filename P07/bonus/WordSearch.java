@@ -79,8 +79,6 @@ public class WordSearch {
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     public void solve() {
         System.err.println("\n" + NUM_PUZZLES + " puzzles with " + NUM_THREADS + " threads");
-
-        // Create an array of threads
         Thread[] threads = new Thread[NUM_THREADS];
         for (int i = 0; i < NUM_THREADS; i++) {
             final int threadID = i;
@@ -88,21 +86,17 @@ public class WordSearch {
             int firstPuzzle = threadID * puzzlesPerThread;
             int lastPuzzlePlusOne = (threadID + 1) * puzzlesPerThread;
 
-            // Last thread may get extra puzzles
             if (threadID == NUM_THREADS - 1) {
                 lastPuzzlePlusOne = NUM_PUZZLES;
             }
             final int finalFirstPuzzle = firstPuzzle;
             final int finalLastPuzzlePlusOne = lastPuzzlePlusOne;
 
-            // Create and start a thread for each range
             threads[i] = new Thread(() -> {
                 solve(threadID, finalFirstPuzzle, finalLastPuzzlePlusOne);
             });
             threads[i].start();
         }
-
-        // Wait for all threads to finish
         for (Thread thread : threads) {
             try {
                 thread.join();
@@ -110,8 +104,6 @@ public class WordSearch {
                 System.err.println("Thread interrupted: " + e.getMessage());
             }
         }
-
-        // Print solutions if verbose
         if (verbose) {
             printSolutions();
         }
@@ -127,9 +119,9 @@ public class WordSearch {
             int puzzleIndex;
 
             synchronized (puzzlesLock) {
-                if (sharedPuzzleCounter < NUM_PUZZLES) {
-                    puzzleIndex = sharedPuzzleCounter;
-                    sharedPuzzleCounter++;
+                if (PuzzleCounter < NUM_PUZZLES) {
+                    puzzleIndex = PuzzleCounter;
+                    PuzzleCounter++;
                 } else {
                     break;
                 }
@@ -139,12 +131,12 @@ public class WordSearch {
             Solver solver = new Solver(p);
             for (String word : p.getWords()) {
                 try {
-                    Solution s = solver.solve(word);
-                    if (s == null)
+                    Solution solution = solver.solve(word);
+                    if (solution == null)
                         System.err.println("#### Failed to solve " + p.name() + " for '" + word + "'");
                     else {
                         synchronized (solutionsLock) {
-                            solutions.add(s);
+                            solutions.add(solution);
                         }
                     }
                 } catch (Exception e) {
@@ -172,7 +164,7 @@ public class WordSearch {
     public final int NUM_PUZZLES;
     public final boolean verbose;
 
-    private int sharedPuzzleCounter = 0;
+    private int PuzzleCounter = 0;
     private List<Puzzle> puzzles = new ArrayList<>();;
     private SortedSet<Solution> solutions = new java.util.TreeSet<>();
 }
