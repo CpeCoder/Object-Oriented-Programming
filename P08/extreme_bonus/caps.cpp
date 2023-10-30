@@ -3,15 +3,15 @@
 #include <string>
 #include <algorithm>
 
-bool comp_str(const std::string &a, const std::string &b) {
-    return a < b;
+bool comp_str(const std::string &str1, const std::string &str2) {
+    return str1 < str2;
 }
 
-bool comp_len(const std::string &a, const std::string &b) {
-    if (a.length() == b.length()) {
-        return a < b;
+bool comp_len(const std::string &str1, const std::string &str2) {
+    if (str1.length() == str2.length()) {
+        return str1 < str2;
     }
-    return a.length() < b.length();
+    return str1.length() < str2.length();
 }
 
 int main(int argc, char** argv) {
