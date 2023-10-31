@@ -9,4 +9,4 @@ hello_all: hello_all.cpp
 	$(CXX) $(CXXFLAGS) hello_all.cpp -o hello_all
 
 clean:
-	-rm -f *.o *.gch *~ a.out hello hello_all
+	-rm -f *.o *.gch *~ a.out hello_me hello_all
