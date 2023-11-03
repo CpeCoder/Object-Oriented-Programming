@@ -2,20 +2,13 @@
 #include <string>
 #include <cmath>
 #include "Shape.h"
+#include "Circle.h"
 
-class Circle : public Shape {
-private:
-    double radius;
-
-public:
-    Circle(double radius) 
-        : radius{radius} {}
-
-    std::string name() override {
-        return "Circle with radius " + std::to_string(radius);
-    }
-
-    double area() override {
-        return M_PI * radius * radius;
-    }
-};
+Circle::Circle(double radius) 
+    : radius{radius} {}
+std::string Circle::name() {
+    return "Circle with radius " + std::to_string(radius);
+}
+double Circle::area() {
+    return M_PI * radius * radius;
+}

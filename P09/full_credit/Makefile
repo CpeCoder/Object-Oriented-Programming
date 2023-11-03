@@ -1,7 +1,7 @@
 CXXFLAGS += --std=c++17
 
-shapes: Shapes.o Shape.o Circle.o Rectangle.o *.h
-	$(CXX) $(CXXFLAGS) Shapes.o Shape.o Circle.o Rectangle.o -o shapes
+shapes: Shape.o Circle.o Rectangle.o Shapes.o *.h
+	$(CXX) $(CXXFLAGS) Shape.o Circle.o Rectangle.o Shapes.o -o shapes
 Circle.o: Circle.cpp *.h
 	$(CXX) $(CXXFLAGS) -c Circle.cpp -o Circle.o
 Rectangle.o: Rectangle.cpp *.h

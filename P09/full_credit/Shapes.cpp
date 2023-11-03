@@ -7,8 +7,8 @@
 int main() {
     std::vector<Shape*> shapes;
 
-    Rectangle rectangle(5.0, 3.0);
-    Circle circle(2.5);
+    Rectangle rectangle{4.0, 3.0};
+    Circle circle{2.0};
 
     shapes.push_back(&rectangle);
     shapes.push_back(&circle);
@@ -16,10 +16,6 @@ int main() {
     for (Shape* shape : shapes) {
         std::cout << shape->to_string() << std::endl;
     }
-
-    for (Shape* shape : shapes) {
-        delete shape;
-    }
-
+    
     return 0;
 }

@@ -1,21 +1,15 @@
 #include <iostream>
 #include <string>
 #include "Shape.h"
+#include "Rectangle.h"
 
-class Rectangle : public Shape {
-private:
-    double width;
-    double height;
+Rectangle::Rectangle(double width, double height) 
+    : width{width}, height{height} {}
 
-public:
-    Rectangle(double width, double height) 
-        : width{width}, height{height} {}
+std::string Rectangle::name() {
+    return "Rectangle with width " + std::to_string(width) + " and height " + std::to_string(height);
+}
 
-    std::string name() override {
-        return "Rectangle with width " + std::to_string(width) + " and height " + std::to_string(height);
-    }
-
-    double area() override {
-        return width * height;
-    }
-};
+double Rectangle::area() {
+    return width * height;
+}
