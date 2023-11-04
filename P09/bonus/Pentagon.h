@@ -4,6 +4,7 @@
 #include "Shape.h"
 
 class Pentagon : public Shape{
+    private:
     double apothem;
 
     public:
