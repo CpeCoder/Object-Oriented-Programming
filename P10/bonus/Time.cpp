@@ -8,6 +8,8 @@ void Time::rationalize() {
     _second = totalSeconds % 60;
 }
 
+Time::Time() :
+    _hour{0}, _minute{0}, _second{0} {}
 
 Time::Time(int hour, int minute, int second) : _hour(hour), _minute(minute), _second(second) {
     rationalize();
@@ -46,6 +48,19 @@ Time Time::operator+(Time time) {
     return Time(newHour, newMinute, newSecond);
 }
 
+Time Time::operator+(int seconds) const {
+    int totalSeconds = _hour * 3600 + _minute * 60 + _second + seconds;
+
+    totalSeconds = (totalSeconds + 86400) % 86400;
+
+    int newHour = totalSeconds / 3600;
+    int newMinute = (totalSeconds % 3600) / 60;
+    int newSecond = totalSeconds % 60;
+
+    return Time(newHour, newMinute, newSecond);
+}
+
+
 Time& Time::operator++() {
     ++_second;
     rationalize();
@@ -56,6 +71,17 @@ Time Time::operator++(int) {
     Time temp = *this;
     ++(*this);
     return temp;
+}
+
+Time operator+(int seconds, const Time& time) {
+    int totalSeconds = time._hour * 3600 + time._minute * 60 + time._second + seconds;
+    totalSeconds = (totalSeconds + 86400) % 86400;
+
+    int newHour = totalSeconds / 3600;
+    int newMinute = (totalSeconds % 3600) / 60;
+    int newSecond = totalSeconds % 60;
+
+    return Time(newHour, newMinute, newSecond);
 }
 
 std::ostream& operator<<(std::ostream& os, const Time& time) {
