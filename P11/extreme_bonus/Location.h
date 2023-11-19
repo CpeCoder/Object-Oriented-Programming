@@ -14,7 +14,7 @@ public:
     bool operator<=(const Location& location) const;
     bool operator>(const Location& location) const;
     bool operator>=(const Location& location) const;
-
+    
     friend std::ostream& operator<<(std::ostream& os, const Location& location);
 
     static std::string last_filename;
