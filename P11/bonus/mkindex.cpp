@@ -9,21 +9,21 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " file1 file2 ..." << std::endl;
+        std::cerr << "Input: " << argv[0] << " file1_name file2_name ..." << std::endl;
         return 1;
     }
 
     Index index;
 
-    for (int i = 1; i < argc; ++i) {
+    for (int i = 1; i < argc; i++) {
         std::ifstream file(argv[i]);
         if (!file.is_open()) {
-            std::cerr << "Error opening file: " << argv[i] << std::endl;
+            std::cerr << "Error, file not open: " << argv[i] << std::endl;
             continue;
         }
 
         std::string line;
-        int line_number = 1;
+        int line_num = 1;
         while (std::getline(file, line)) {
             std::istringstream iss(line);
             std::string word;
@@ -39,10 +39,10 @@ int main(int argc, char* argv[]) {
                     c = std::tolower(c);
                 }
                 
-                index.add_word(argv[i], line_number, word);
+                index.add_word(argv[i], line_num, word);
             }
 
-            ++line_number;
+            ++line_num;
         }
 
         file.close();
